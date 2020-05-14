@@ -111,21 +111,27 @@ namespace Validation.Test
         {
 
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            FileStream schema = new FileStream(@"C:\Users\edmun\OneDrive\Documents\GitHub\peppol-bis-invoice-3\rules\sch\CEN-EN16931-UBL.sch", FileMode.Open, FileAccess.Read); //"C:\Users\edmun\Documents\ITSligo(2)\eInvoice for Communities\Validator-V2.1\Validator\sch\DH_InvoiceDataDictionaryCheck v2.sch", FileMode.Open, FileAccess.Read);// path + @"\po\po-schema.sch", FileMode.Open, FileAccess.Read);
-            FileStream xml = new FileStream(@"C:\Users\edmun\Documents\ITSligo(2)\eInvoice for Communities\XML\Vat-category-S with Error.xml", FileMode.Open, FileAccess.Read); // path + @"\po\po-bad.xml", FileMode.Open, FileAccess.Read);
+           
+            {
+                
+                FileStream schema = new FileStream(path + @"\po\\CEN-EN16931-UBL.sch", FileMode.Open, FileAccess.Read); 
+                FileStream xml = new FileStream(path + @"\po\Vat-category-S with Error.xml", FileMode.Open, FileAccess.Read);
 
-            var results = new Validation.Schematron().Validate(xml, schema);
-            var items = from activepattern in results.activepattern
-                        from firedrule in activepattern.firedrule
-                        where firedrule.failedassert != null
-                        from failedassert in firedrule.failedassert
-                        select failedassert;
-            Assert.IsTrue(items.Count()!= 0);
+                var results = new Validation.Schematron().Validate(xml, schema);
+                var items = from activepattern in results.activepattern
+                            from firedrule in activepattern.firedrule
+                            where firedrule.failedassert != null
+                            from failedassert in firedrule.failedassert
+                            select failedassert;
+                Assert.IsTrue(items.Count() != 0);
 
-            xml.Close();
-            schema.Close();
+                xml.Close();
+                schema.Close();
+            }
 
         }
+
+        
 
     }
 }
