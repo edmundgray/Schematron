@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:a="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:f="http://hl7.org/fhir" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:h="http://www.w3.org/1999/xhtml" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://purl.oclc.org/dsdl/svrl">
+  <xs:element name="schematron-output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="ns-prefix-in-attribute-values">
+          <xs:complexType>
+            <xs:attribute name="uri" type="xs:string" use="required" />
+            <xs:attribute name="prefix" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="active-pattern">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="fired-rule">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element maxOccurs="unbounded" name="failed-assert">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="text" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="test" type="xs:string" use="required" />
+                        <xs:attribute name="location" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="context" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="document" type="xs:string" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="title" type="xs:string" use="required" />
+      <xs:attribute name="schemaVersion" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xsd:schema>

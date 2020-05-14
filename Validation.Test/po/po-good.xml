@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Good XML  -->
+<!-- See http://www.w3.org/TR/xmlschema-0/   -->
+<purchaseOrder orderDate="2012-12-12">
+    <shipTo>
+        <name>Kippabboo Versace</name>
+        <street>18 Action Street</street>
+        <city>Sleepy Town</city>
+        <state>FL</state>
+        <zip>2099</zip>
+    </shipTo>
+    <billTo country="US">
+        <name>Katapo Feelgood</name>
+        <street>1 Xena Avenue</street>
+        <city>Aukland</city>
+        <state>North Island</state>
+        <zip>123</zip>
+    </billTo>
+    <comment>Hurry, my kiwi is going wild!</comment>
+    <items>
+        <item partNum="123-AA">
+            <productName>Deluxe Kiwi Beakbrush</productName>
+            <quantity>1</quantity>
+            <USPrice>148.95</USPrice>
+            <comment>Confirm this is electric</comment>
+        </item>
+      <item partNum="926-AA">
+            <productName>Bilby Trap</productName>
+             <quantity>2</quantity>
+           <USPrice>39.98</USPrice>
+            <shipDate>2001-08-01</shipDate>
+        </item>
+    </items>
+</purchaseOrder>
